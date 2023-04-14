@@ -39,25 +39,24 @@ public class Form {
 	@Column(nullable = false)
 	@NotNull(message = "年齢の入力は必須です")
 	@Positive(message = "年齢は数値で入力してください")
-//	@Min(value = 0, message = "年齢は数値で入力してください")
 	private String age;
 	
-	@Column
+	@Column(nullable = false)
 	private String prefecture;
 	
-	@Column
+	@Column(nullable = false)
 	private String address1;
 	
-	@Column
+	@Column(nullable = false)
 	private String address2;
 	
-	@Column
+	@Column(nullable = false)
 	private String comment;
 	
-	@Column
+	@Column(name = "updated_at")
 	private Date updatedAt;
 
-	@Column(updatable = false)
+	@Column(name = "created_at", updatable = false)
 	private Date createdAt;
 
 	@PrePersist
