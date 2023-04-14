@@ -29,15 +29,15 @@ public class FormController {
 	public String register(@Valid @ModelAttribute Form form, BindingResult result, Model model, HttpSession session) {
 		try {
 			if (result.hasErrors()) {
-				return "redirect:/ContactForm/input";
+				return "redirect:/contactForm/input";
 			}
 			// セッションにフォーム情報をセット
 			session.setAttribute("form", form);
 			
 		} catch(Exception e) {
-			return "redirect:/ContactForm/input";
+			return "redirect:/contactForm/input";
 		}
-		return "ContactForm/confirm";
+		return "contactForm/confirm";
 	}
 	
 	/*
@@ -49,11 +49,11 @@ public class FormController {
         Form sessionForm = (Form) session.getAttribute("form");
         if (sessionForm == null) {
             // セッションにフォーム情報がない場合は、入力画面に遷移する
-            return "ContactForm/input";
+            return "contactForm/input";
         }
         // フォーム情報をモデルに追加する
         model.addAttribute("form", sessionForm);
-		return "ContactForm/input";
+		return "contactForm/input";
 	}
 	
 	/*
@@ -69,8 +69,8 @@ public class FormController {
 			session.invalidate();
 			
 		} catch (Exception e) {
-			return "redirect:/ContactForm/confirm";
+			return "redirect:/contactForm/confirm";
 		}
-		return "ContactForm/complete";
+		return "contactForm/complete";
 	}
 }
